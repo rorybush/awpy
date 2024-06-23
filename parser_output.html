@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example Parser JSON &mdash; awpy 1.3.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Example Parser JSON &mdash; awpy 2.0.0rc1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2943afd"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -50,7 +52,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="analytics.html">Analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parser.html">Parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a></li>
@@ -81,7 +82,7 @@
            <div itemprop="articleBody">
              
   <section id="example-parser-json">
-<h1>Example Parser JSON<a class="headerlink" href="#example-parser-json" title="Permalink to this heading"></a></h1>
+<h1>Example Parser JSON<a class="headerlink" href="#example-parser-json" title="Link to this heading"></a></h1>
 <p>When using <cite>awpy.DemoParser</cite>, you create a <cite>JSON</cite> output file. This is generally a large file, and is described by the JSON structure contained in this documentation.</p>
 <p><strong>Contents</strong></p>
 <ul class="simple">
@@ -96,254 +97,254 @@
 <li><p><a class="reference internal" href="#frames"><span class="std std-ref">Frames</span></a></p></li>
 </ul>
 <section id="top-level-keys">
-<h2>Top level keys<a class="headerlink" href="#top-level-keys" title="Permalink to this heading"></a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;matchID&quot;: &quot;003486831536689381471_0732641554&quot;,  # Set to be the name of the demo file
-    &quot;clientName&quot;: &quot;GOTV Demo&quot;,                      # Client which recorded the demo
-    &quot;mapName&quot;: &quot;de_inferno&quot;,
-    &quot;tickRate&quot;: 64,                                 # Server tick rate
-    &quot;playbackTicks&quot;: 161695,                        # Total ticks in the demo
-    &quot;playbackFramesCount&quot;: 80775,                   # Total number of frames
-    &quot;parsedToFrameIdx&quot;: 80790,                      # Parsed until X frame
-    &quot;parserParameters&quot;: {                           # All the below parameters are set in DemoParser
-        &quot;parseRate&quot;: 256,                           # Parse rate set in DemoParser. Represents spacing between recorded frames.
-        &quot;parseFrames&quot;: false,
-        &quot;parseKillFrames&quot;: true,                    # If set to true, a frame is recorded every kill. Doesn&quot;t require parseFrames == true
-        &quot;tradeTime&quot;: 5,
-        &quot;roundBuyStyle&quot;: &quot;hltv&quot;,                    # HLTV represents round buys (e.g., full eco, full buy, etc.) as they do in HLTV.
-        &quot;damagesRolledUp&quot;: false                    # Sometimes damages can happen in the same tick. This option means they are combined.
-    },
-    &quot;serverVars&quot;: {                                 # Server cvars
-        &quot;cashBombDefused&quot;: 0,
-        &quot;cashBombPlanted&quot;: 0,
-        &quot;cashTeamTWinBomb&quot;: 0,
-        &quot;cashWinDefuse&quot;: 3500,
-        &quot;cashWinTimeRunOut&quot;: 0,
-        &quot;cashWinElimination&quot;: 0,
-        &quot;cashPlayerKilledDefault&quot;: 0,
-        &quot;cashTeamLoserBonus&quot;: 0,
-        &quot;cashTeamLoserBonusConsecutive&quot;: 0,
-        &quot;roundTime&quot;: 0,
-        &quot;roundTimeDefuse&quot;: 0,
-        &quot;roundRestartDelay&quot;: 0,
-        &quot;freezeTime&quot;: 15,
-        &quot;buyTime&quot;: 20,
-        &quot;bombTimer&quot;: 0,
-        &quot;maxRounds&quot;: 30,
-        &quot;timeoutsAllowed&quot;: 0,
-        &quot;coachingAllowed&quot;: 0
-    },
-    &quot;matchPhases&quot;: {                                # Contains lists with the ticks on which certain round/phase events happened
-        &quot;announcementLastRoundHalf&quot;: [...],
-        &quot;announcementFinalRound&quot;: [...],
-        &quot;announcementMatchStarted&quot;: [...],
-        &quot;roundStarted&quot;: [...],
-        &quot;roundEnded&quot;: [...],
-        &quot;roundFreezetimeEnded&quot;: [...],
-        &quot;roundEndedOfficial&quot;: [...],
-        &quot;gameHalfEnded&quot;: [...],
-        &quot;matchStart&quot;: [...],
-        &quot;matchStartedChanged&quot;: [...],
-        &quot;warmupChanged&quot;: [...],
-        &quot;teamSwitch&quot;: [...]
-    },
-    &quot;matchmakingRanks&quot;: [                           # Contains a list of players and their win counts and rank info. Only for MM demos.
-        {
-            &quot;steamID&quot;: 76561198060045535,
-            &quot;rankChange&quot;: 0,
-            &quot;rankOld&quot;: &quot;The Global Elite&quot;,
-            &quot;rankNew&quot;: &quot;The Global Elite&quot;,
-            &quot;winCount&quot;: 629
-        },
-        ...
-    ],
-    &quot;playerConnections&quot;: [                          # List of player connect/disconnect events
-        {
-            &quot;tick&quot;: 0,
-            &quot;action&quot;: &quot;connect&quot;,
-            &quot;steamID&quot;: 76561198000441323
-        },
-        {
-            &quot;tick&quot;: 161259,
-            &quot;action&quot;: &quot;disconnect&quot;,
-            &quot;steamID&quot;: 76561198043315625
-        },
-        ...
-    ],
-    &quot;gameRounds&quot;: [{...}]                           # Game rounds
-}
+<h2>Top level keys<a class="headerlink" href="#top-level-keys" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;matchID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;003486831536689381471_0732641554&quot;</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Se</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">demo</span><span class="w"> </span><span class="kc">f</span><span class="err">ile</span>
+<span class="w">    </span><span class="nt">&quot;clientName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GOTV Demo&quot;</span><span class="p">,</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">Clie</span><span class="kc">nt</span><span class="w"> </span><span class="err">which</span><span class="w"> </span><span class="err">recorded</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">demo</span>
+<span class="w">    </span><span class="nt">&quot;mapName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de_inferno&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tickRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w">                                 </span><span class="err">#</span><span class="w"> </span><span class="err">Server</span><span class="w"> </span><span class="kc">t</span><span class="err">ick</span><span class="w"> </span><span class="err">ra</span><span class="kc">te</span>
+<span class="w">    </span><span class="nt">&quot;playbackTicks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">161695</span><span class="p">,</span><span class="w">                        </span><span class="err">#</span><span class="w"> </span><span class="err">To</span><span class="kc">tal</span><span class="w"> </span><span class="kc">t</span><span class="err">icks</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">demo</span>
+<span class="w">    </span><span class="nt">&quot;playbackFramesCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80775</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">To</span><span class="kc">tal</span><span class="w"> </span><span class="kc">nu</span><span class="err">mber</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">fra</span><span class="err">mes</span>
+<span class="w">    </span><span class="nt">&quot;parsedToFrameIdx&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80790</span><span class="p">,</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">Parsed</span><span class="w"> </span><span class="err">u</span><span class="kc">nt</span><span class="err">il</span><span class="w"> </span><span class="err">X</span><span class="w"> </span><span class="kc">fra</span><span class="err">me</span>
+<span class="w">    </span><span class="nt">&quot;parserParameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">below</span><span class="w"> </span><span class="err">parame</span><span class="kc">ters</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">se</span><span class="kc">t</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">DemoParser</span>
+<span class="w">        </span><span class="nt">&quot;parseRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">Parse</span><span class="w"> </span><span class="err">ra</span><span class="kc">te</span><span class="w"> </span><span class="err">se</span><span class="kc">t</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">DemoParser.</span><span class="w"> </span><span class="err">Represe</span><span class="kc">nts</span><span class="w"> </span><span class="err">spaci</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">be</span><span class="kc">t</span><span class="err">wee</span><span class="kc">n</span><span class="w"> </span><span class="err">recorded</span><span class="w"> </span><span class="kc">fra</span><span class="err">mes.</span>
+<span class="w">        </span><span class="nt">&quot;parseFrames&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;parseKillFrames&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">I</span><span class="kc">f</span><span class="w"> </span><span class="err">se</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="kc">fra</span><span class="err">me</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">recorded</span><span class="w"> </span><span class="err">every</span><span class="w"> </span><span class="err">kill.</span><span class="w"> </span><span class="err">Does</span><span class="kc">n</span><span class="s2">&quot;t require parseFrames == true</span>
+<span class="s2">        &quot;</span><span class="kc">tra</span><span class="err">deTime</span><span class="s2">&quot;: 5,</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dBuyS</span><span class="kc">t</span><span class="err">yle</span><span class="s2">&quot;: &quot;</span><span class="err">hl</span><span class="kc">t</span><span class="err">v</span><span class="s2">&quot;,                    # HLTV represents round buys (e.g., full eco, full buy, etc.) as they do in HLTV.</span>
+<span class="s2">        &quot;</span><span class="err">damagesRolledUp</span><span class="s2">&quot;: false                    # Sometimes damages can happen in the same tick. This option means they are combined.</span>
+<span class="s2">    },</span>
+<span class="s2">    &quot;</span><span class="err">serverVars</span><span class="s2">&quot;: {                                 # Server cvars</span>
+<span class="s2">        &quot;</span><span class="err">cashBombDe</span><span class="kc">fuse</span><span class="err">d</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashBombPla</span><span class="kc">nte</span><span class="err">d</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashTeamTWi</span><span class="kc">n</span><span class="err">Bomb</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashWi</span><span class="kc">n</span><span class="err">De</span><span class="kc">fuse</span><span class="s2">&quot;: 3500,</span>
+<span class="s2">        &quot;</span><span class="err">cashWi</span><span class="kc">n</span><span class="err">TimeRu</span><span class="kc">n</span><span class="err">Ou</span><span class="kc">t</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashWi</span><span class="kc">n</span><span class="err">Elimi</span><span class="kc">nat</span><span class="err">io</span><span class="kc">n</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashPlayerKilledDe</span><span class="kc">fault</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashTeamLoserBo</span><span class="kc">nus</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">cashTeamLoserBo</span><span class="kc">nus</span><span class="err">Co</span><span class="kc">nse</span><span class="err">cu</span><span class="kc">t</span><span class="err">ive</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dTime</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dTimeDe</span><span class="kc">fuse</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dRes</span><span class="kc">tart</span><span class="err">Delay</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="kc">free</span><span class="err">zeTime</span><span class="s2">&quot;: 15,</span>
+<span class="s2">        &quot;</span><span class="err">buyTime</span><span class="s2">&quot;: 20,</span>
+<span class="s2">        &quot;</span><span class="err">bombTimer</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">maxRou</span><span class="kc">n</span><span class="err">ds</span><span class="s2">&quot;: 30,</span>
+<span class="s2">        &quot;</span><span class="kc">t</span><span class="err">imeou</span><span class="kc">ts</span><span class="err">Allowed</span><span class="s2">&quot;: 0,</span>
+<span class="s2">        &quot;</span><span class="err">coachi</span><span class="kc">n</span><span class="err">gAllowed</span><span class="s2">&quot;: 0</span>
+<span class="s2">    },</span>
+<span class="s2">    &quot;</span><span class="err">ma</span><span class="kc">t</span><span class="err">chPhases</span><span class="s2">&quot;: {                                # Contains lists with the ticks on which certain round/phase events happened</span>
+<span class="s2">        &quot;</span><span class="err">a</span><span class="kc">nn</span><span class="err">ou</span><span class="kc">n</span><span class="err">ceme</span><span class="kc">nt</span><span class="err">Las</span><span class="kc">t</span><span class="err">Rou</span><span class="kc">n</span><span class="err">dHal</span><span class="kc">f</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">a</span><span class="kc">nn</span><span class="err">ou</span><span class="kc">n</span><span class="err">ceme</span><span class="kc">nt</span><span class="err">Fi</span><span class="kc">nal</span><span class="err">Rou</span><span class="kc">n</span><span class="err">d</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">a</span><span class="kc">nn</span><span class="err">ou</span><span class="kc">n</span><span class="err">ceme</span><span class="kc">nt</span><span class="err">Ma</span><span class="kc">t</span><span class="err">chS</span><span class="kc">tarte</span><span class="err">d</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dS</span><span class="kc">tarte</span><span class="err">d</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dE</span><span class="kc">n</span><span class="err">ded</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dFreeze</span><span class="kc">t</span><span class="err">imeE</span><span class="kc">n</span><span class="err">ded</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">rou</span><span class="kc">n</span><span class="err">dE</span><span class="kc">n</span><span class="err">dedO</span><span class="kc">ff</span><span class="err">icial</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">gameHal</span><span class="kc">f</span><span class="err">E</span><span class="kc">n</span><span class="err">ded</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">ma</span><span class="kc">t</span><span class="err">chS</span><span class="kc">tart</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">ma</span><span class="kc">t</span><span class="err">chS</span><span class="kc">tarte</span><span class="err">dCha</span><span class="kc">n</span><span class="err">ged</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="err">warmupCha</span><span class="kc">n</span><span class="err">ged</span><span class="s2">&quot;: [...],</span>
+<span class="s2">        &quot;</span><span class="kc">tea</span><span class="err">mSwi</span><span class="kc">t</span><span class="err">ch</span><span class="s2">&quot;: [...]</span>
+<span class="s2">    },</span>
+<span class="s2">    &quot;</span><span class="err">ma</span><span class="kc">t</span><span class="err">chmaki</span><span class="kc">n</span><span class="err">gRa</span><span class="kc">n</span><span class="err">ks</span><span class="s2">&quot;: [                           # Contains a list of players and their win counts and rank info. Only for MM demos.</span>
+<span class="s2">        {</span>
+<span class="s2">            &quot;</span><span class="err">s</span><span class="kc">tea</span><span class="err">mID</span><span class="s2">&quot;: 76561198060045535,</span>
+<span class="s2">            &quot;</span><span class="err">ra</span><span class="kc">n</span><span class="err">kCha</span><span class="kc">n</span><span class="err">ge</span><span class="s2">&quot;: 0,</span>
+<span class="s2">            &quot;</span><span class="err">ra</span><span class="kc">n</span><span class="err">kOld</span><span class="s2">&quot;: &quot;</span><span class="err">The</span><span class="w"> </span><span class="err">Global</span><span class="w"> </span><span class="err">Eli</span><span class="kc">te</span><span class="s2">&quot;,</span>
+<span class="s2">            &quot;</span><span class="err">ra</span><span class="kc">n</span><span class="err">kNew</span><span class="s2">&quot;: &quot;</span><span class="err">The</span><span class="w"> </span><span class="err">Global</span><span class="w"> </span><span class="err">Eli</span><span class="kc">te</span><span class="s2">&quot;,</span>
+<span class="s2">            &quot;</span><span class="err">wi</span><span class="kc">n</span><span class="err">Cou</span><span class="kc">nt</span><span class="s2">&quot;: 629</span>
+<span class="s2">        },</span>
+<span class="s2">        ...</span>
+<span class="s2">    ],</span>
+<span class="s2">    &quot;</span><span class="err">playerCo</span><span class="kc">nne</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">ns</span><span class="s2">&quot;: [                          # List of player connect/disconnect events</span>
+<span class="s2">        {</span>
+<span class="s2">            &quot;</span><span class="kc">t</span><span class="err">ick</span><span class="s2">&quot;: 0,</span>
+<span class="s2">            &quot;</span><span class="err">ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">&quot;: &quot;</span><span class="err">co</span><span class="kc">nne</span><span class="err">c</span><span class="kc">t</span><span class="s2">&quot;,</span>
+<span class="s2">            &quot;</span><span class="err">s</span><span class="kc">tea</span><span class="err">mID</span><span class="s2">&quot;: 76561198000441323</span>
+<span class="s2">        },</span>
+<span class="s2">        {</span>
+<span class="s2">            &quot;</span><span class="kc">t</span><span class="err">ick</span><span class="s2">&quot;: 161259,</span>
+<span class="s2">            &quot;</span><span class="err">ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="s2">&quot;: &quot;</span><span class="err">disco</span><span class="kc">nne</span><span class="err">c</span><span class="kc">t</span><span class="s2">&quot;,</span>
+<span class="s2">            &quot;</span><span class="err">s</span><span class="kc">tea</span><span class="err">mID</span><span class="s2">&quot;: 76561198043315625</span>
+<span class="s2">        },</span>
+<span class="s2">        ...</span>
+<span class="s2">    ],</span>
+<span class="s2">    &quot;</span><span class="err">gameRou</span><span class="kc">n</span><span class="err">ds&quot;: [{...}]                           # Game rounds</span>
+<span class="err">}</span>
 </pre></div>
 </div>
 </section>
 <section id="rounds">
-<h2>Rounds<a class="headerlink" href="#rounds" title="Permalink to this heading"></a></h2>
+<h2>Rounds<a class="headerlink" href="#rounds" title="Link to this heading"></a></h2>
 <p>This object contains round information and events. The possible round end reasons are <cite>TargetBombed</cite>, <cite>VIPEscaped</cite>, <cite>VIPKilled</cite>, <cite>TerroristsEscaped</cite>, <cite>CTStoppedEscape</cite>, <cite>TerroristsStopped</cite>, <cite>BombDefused</cite>, <cite>CTWin</cite>, <cite>TerroristsWin</cite>, <cite>Draw</cite>, <cite>HostagesRescued</cite>, <cite>TargetSaved</cite>, <cite>HostagesNotRescued</cite>, <cite>TerroristsNotEscaped</cite>, <cite>VIPNotEscaped</cite>, <cite>GameStart</cite>, <cite>TerroristsSurrender</cite>, <cite>CTSurrender</cite>.</p>
 <p>Keep in mind that due to dropped guns which aren’t equipped at FreezeTimeEnd, the FreezeTimeEndEqVal may not equal StartEqVal + Spend.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;roundNum&quot;: 1,
-    &quot;isWarmup&quot;: false,                  # true if the round is a warmup round
-    &quot;startTick&quot;: 6980,
-    &quot;freezeTimeEndTick&quot;: 7936,
-    &quot;endTick&quot;: 14512,                   # Tick when end condition is reached, but round is not officialy over
-    &quot;endOfficialTick&quot;: 14832,
-    &quot;bombPlantTick&quot;: 12450,
-    &quot;tScore&quot;: 0,
-    &quot;ctScore&quot;: 0,
-    &quot;endTScore&quot;: 1,
-    &quot;endCTScore&quot;: 0,
-    &quot;ctTeam&quot;: &quot;&quot;,
-    &quot;tTeam&quot;: &quot;&quot;,
-    &quot;winningSide&quot;: &quot;T&quot;,
-    &quot;winningTeam&quot;: &quot;&quot;,
-    &quot;losingTeam&quot;: &quot;&quot;,
-    &quot;roundEndReason&quot;: &quot;TerroristsWin&quot;,
-    &quot;ctFreezeTimeEndEqVal&quot;: 3650,        # Eq value at the end of freezetime
-    &quot;ctRoundStartEqVal&quot;: 1000,           # Eq value at the beginning of the round
-    &quot;ctRoundSpendMoney&quot;: 2650,           # Money spent in the round
-    &quot;ctBuyType&quot;: &quot;Full Eco&quot;,             # Determined by the FreezeTimeEnd eq value
-    &quot;tFreezeTimeEndEqVal&quot;: 4400,
-    &quot;tRoundStartEqVal&quot;: 1000,
-    &quot;tRoundSpendMoney&quot;: 3400,
-    &quot;tBuyType&quot;: &quot;Full Eco&quot;,
-    &quot;ctSide&quot;: {                          # Players who were on the CT side at FreezeTimeEnd
-        &quot;teamName&quot;: &quot;...&quot;,
-        &quot;players&quot;: [{
-            &quot;playerName&quot;: &quot;...&quot;,
-            &quot;steamID&quot;: 12345
-        }, ...]
-    },
-    &quot;tSide&quot;: {...},                      # Players who were on the T side at FreezeTimeEnd
-    &quot;kills&quot;: [...],                      # Kills
-    &quot;damages&quot;: [...],                    # Damages
-    &quot;grenades&quot;: [...],                   # Grenade throws
-    &quot;bombEvents&quot;: [...],                 # Bomb events (plants, defuses, etc.)
-    &quot;weaponFires&quot;: [...],                # Shots
-    &quot;flashes&quot;: [...],                    # Flashes
-    &quot;frames&quot;: [...]                      # Frames (game snapshots)
-}
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;roundNum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isWarmup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">rou</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">warmup</span><span class="w"> </span><span class="err">rou</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">    </span><span class="nt">&quot;startTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6980</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;freezeTimeEndTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7936</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;endTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14512</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">Tick</span><span class="w"> </span><span class="err">whe</span><span class="kc">n</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">co</span><span class="kc">n</span><span class="err">di</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">reached</span><span class="p">,</span><span class="w"> </span><span class="err">bu</span><span class="kc">t</span><span class="w"> </span><span class="err">rou</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">ff</span><span class="err">icialy</span><span class="w"> </span><span class="err">over</span>
+<span class="w">    </span><span class="nt">&quot;endOfficialTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14832</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bombPlantTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12450</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ctScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;endTScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;endCTScore&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ctTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;winningSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;winningTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;losingTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;roundEndReason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TerroristsWin&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ctFreezeTimeEndEqVal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3650</span><span class="p">,</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">Eq</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">free</span><span class="err">ze</span><span class="kc">t</span><span class="err">ime</span>
+<span class="w">    </span><span class="nt">&quot;ctRoundStartEqVal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">           </span><span class="err">#</span><span class="w"> </span><span class="err">Eq</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">begi</span><span class="kc">nn</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">rou</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">    </span><span class="nt">&quot;ctRoundSpendMoney&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2650</span><span class="p">,</span><span class="w">           </span><span class="err">#</span><span class="w"> </span><span class="err">Mo</span><span class="kc">ne</span><span class="err">y</span><span class="w"> </span><span class="err">spe</span><span class="kc">nt</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">rou</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">    </span><span class="nt">&quot;ctBuyType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Full Eco&quot;</span><span class="p">,</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">De</span><span class="kc">ter</span><span class="err">mi</span><span class="kc">ne</span><span class="err">d</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">FreezeTimeE</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">eq</span><span class="w"> </span><span class="err">value</span>
+<span class="w">    </span><span class="nt">&quot;tFreezeTimeEndEqVal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4400</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tRoundStartEqVal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tRoundSpendMoney&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3400</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tBuyType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Full Eco&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ctSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                          </span><span class="err">#</span><span class="w"> </span><span class="err">Players</span><span class="w"> </span><span class="err">who</span><span class="w"> </span><span class="err">were</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">CT</span><span class="w"> </span><span class="err">side</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="err">FreezeTimeE</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">        </span><span class="nt">&quot;teamName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;players&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nt">&quot;playerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;steamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;tSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">Players</span><span class="w"> </span><span class="err">who</span><span class="w"> </span><span class="err">were</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">T</span><span class="w"> </span><span class="err">side</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="err">FreezeTimeE</span><span class="kc">n</span><span class="err">d</span>
+<span class="w">    </span><span class="nt">&quot;kills&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">Kills</span>
+<span class="w">    </span><span class="nt">&quot;damages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">Damages</span>
+<span class="w">    </span><span class="nt">&quot;grenades&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">Gre</span><span class="kc">na</span><span class="err">de</span><span class="w"> </span><span class="kc">t</span><span class="err">hrows</span>
+<span class="w">    </span><span class="nt">&quot;bombEvents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">Bomb</span><span class="w"> </span><span class="err">eve</span><span class="kc">nts</span><span class="w"> </span><span class="err">(pla</span><span class="kc">nts</span><span class="p">,</span><span class="w"> </span><span class="err">de</span><span class="kc">fuses</span><span class="p">,</span><span class="w"> </span><span class="err">e</span><span class="kc">t</span><span class="err">c.)</span>
+<span class="w">    </span><span class="nt">&quot;weaponFires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                </span><span class="err">#</span><span class="w"> </span><span class="err">Sho</span><span class="kc">ts</span>
+<span class="w">    </span><span class="nt">&quot;flashes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">Flashes</span>
+<span class="w">    </span><span class="nt">&quot;frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">                      </span><span class="err">#</span><span class="w"> </span><span class="err">Frames</span><span class="w"> </span><span class="err">(game</span><span class="w"> </span><span class="err">s</span><span class="kc">na</span><span class="err">psho</span><span class="kc">ts</span><span class="err">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="kills">
-<h2>Kills<a class="headerlink" href="#kills" title="Permalink to this heading"></a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;tick&quot;: 9582,
-    &quot;seconds&quot;: 25.71875,
-    &quot;clockTime&quot;: &quot;01:30&quot;,
-    &quot;attackerSteamID&quot;: 76561198088580941,
-    &quot;attackerName&quot;: &quot;febix&quot;,
-    &quot;attackerTeam&quot;: &quot;&quot;,
-    &quot;attackerSide&quot;: &quot;T&quot;,
-    &quot;attackerX&quot;: 509.1275939941406,
-    &quot;attackerY&quot;: 630.7955322265625,
-    &quot;attackerZ&quot;: 86.98412322998047,
-    &quot;attackerViewX&quot;: 327.601318359375,
-    &quot;attackerViewY&quot;: 1.9775390625,
-    &quot;victimSteamID&quot;: 76561198084596669,
-    &quot;victimName&quot;: &quot;Rullaan Spotil KANDALFWOZ ;)&quot;,
-    &quot;victimTeam&quot;: &quot;&quot;,
-    &quot;victimSide&quot;: &quot;CT&quot;,
-    &quot;victimX&quot;: 781.4129638671875,
-    &quot;victimY&quot;: 491.81201171875,
-    &quot;victimZ&quot;: 87.30707550048828,
-    &quot;victimViewX&quot;: 153.6328125,
-    &quot;victimViewY&quot;: 1.0711669921875,
-    &quot;assisterSteamID&quot;: None,                       # If there is an assister, this data will not be None
-    &quot;assisterName&quot;: None,
-    &quot;assisterTeam&quot;: None,
-    &quot;assisterSide&quot;: None,
-    &quot;isSuicide&quot;: false,
-    &quot;isTeamkill&quot;: false,
-    &quot;isWallbang&quot;: false,
-    &quot;penetratedObjects&quot;: 0,
-    &quot;isFirstKill&quot;: true,
-    &quot;isHeadshot&quot;: true,
-    &quot;victimBlinded&quot;: false,
-    &quot;attackerBlinded&quot;: false,
-    &quot;flashThrowerSteamID&quot;: None,
-    &quot;flashThrowerName&quot;: None,
-    &quot;flashThrowerTeam&quot;: None,
-    &quot;flashThrowerSide&quot;: None,
-    &quot;noScope&quot;: false,
-    &quot;thruSmoke&quot;: false,
-    &quot;distance&quot;: 305.7054888578491,                 # Distance between attacker and victim in ingame units
-    &quot;isTrade&quot;: false,                              # Trades determined through the parser parameters. Default is 5 second time window.
-    &quot;playerTradedName&quot;: None,
-    &quot;playerTradedTeam&quot;: None,
-    &quot;playerTradedSteamID&quot;: None,
-    &quot;weapon&quot;: &quot;Glock-18&quot;
-    &quot;weaponClass&quot;: &quot;Pistols&quot;
-}
+<h2>Kills<a class="headerlink" href="#kills" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9582</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">25.71875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;clockTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01:30&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76561198088580941</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;febix&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">509.1275939941406</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">630.7955322265625</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">86.98412322998047</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerViewX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">327.601318359375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerViewY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.9775390625</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76561198084596669</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Rullaan Spotil KANDALFWOZ ;)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">781.4129638671875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">491.81201171875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">87.30707550048828</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimViewX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">153.6328125</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimViewY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0711669921875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;assisterSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span><span class="w">                       </span><span class="err">#</span><span class="w"> </span><span class="err">I</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">here</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="w"> </span><span class="err">assis</span><span class="kc">ter</span><span class="p">,</span><span class="w"> </span><span class="kc">t</span><span class="err">his</span><span class="w"> </span><span class="err">da</span><span class="kc">ta</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span>
+<span class="w">    </span><span class="nt">&quot;assisterName&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;assisterTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;assisterSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isSuicide&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isTeamkill&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isWallbang&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;penetratedObjects&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isFirstKill&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isHeadshot&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimBlinded&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerBlinded&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;flashThrowerSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;flashThrowerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;flashThrowerTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;flashThrowerSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;noScope&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;thruSmoke&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">305.7054888578491</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">Dis</span><span class="kc">tan</span><span class="err">ce</span><span class="w"> </span><span class="err">be</span><span class="kc">t</span><span class="err">wee</span><span class="kc">n</span><span class="w"> </span><span class="err">a</span><span class="kc">tta</span><span class="err">cker</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">vic</span><span class="kc">t</span><span class="err">im</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">game</span><span class="w"> </span><span class="err">u</span><span class="kc">n</span><span class="err">i</span><span class="kc">ts</span>
+<span class="w">    </span><span class="nt">&quot;isTrade&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">                              </span><span class="err">#</span><span class="w"> </span><span class="err">Trades</span><span class="w"> </span><span class="err">de</span><span class="kc">ter</span><span class="err">mi</span><span class="kc">ne</span><span class="err">d</span><span class="w"> </span><span class="kc">t</span><span class="err">hrough</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">parser</span><span class="w"> </span><span class="err">parame</span><span class="kc">ters</span><span class="err">.</span><span class="w"> </span><span class="err">De</span><span class="kc">fault</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="err">seco</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="kc">t</span><span class="err">ime</span><span class="w"> </span><span class="err">wi</span><span class="kc">n</span><span class="err">dow.</span>
+<span class="w">    </span><span class="nt">&quot;playerTradedName&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;playerTradedTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;playerTradedSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;weapon&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;Glock-18&quot;</span>
+<span class="w">    </span><span class="nt">&quot;weaponClass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pistols&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="damages">
-<h2>Damages<a class="headerlink" href="#damages" title="Permalink to this heading"></a></h2>
+<h2>Damages<a class="headerlink" href="#damages" title="Link to this heading"></a></h2>
 <p>The possible hit groups are <cite>Generic</cite>, <cite>Head</cite>, <cite>Chest</cite>, <cite>Stomach</cite>, <cite>LeftArm</cite>, <cite>RightArm</cite>, <cite>LeftLeg</cite>, <cite>RightLeg</cite>, <cite>Gear</cite>.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;tick&quot;: 8172,
-    &quot;seconds&quot;: 3.6875,
-    &quot;clockTime&quot;: &quot;01:52&quot;,
-    &quot;attackerSteamID&quot;: 76561198035759667,
-    &quot;attackerName&quot;: &quot;alo0o0o0o0&quot;,
-    &quot;attackerTeam&quot;: &quot;&quot;,
-    &quot;attackerSide&quot;: &quot;T&quot;,
-    &quot;attackerX&quot;: -1184.6986083984375,
-    &quot;attackerY&quot;: 477.1373596191406,
-    &quot;attackerZ&quot;: -55.96875,
-    &quot;attackerViewX&quot;: 56.79931640625,
-    &quot;attackerViewY&quot;: 3.3837890625,
-    &quot;attackerStrafe&quot;: false,                 # Was the attacker moving when they shot
-    &quot;victimSteamID&quot;: 76561197960742750,
-    &quot;victimName&quot;: &quot;howl&quot;,
-    &quot;victimTeam&quot;: &quot;&quot;,
-    &quot;victimSide&quot;: &quot;T&quot;,
-    &quot;victimX&quot;: -1125.4398193359375,
-    &quot;victimY&quot;: 520.9878540039062,
-    &quot;victimZ&quot;: -51.978607177734375,
-    &quot;victimViewX&quot;: 9.2230224609375,
-    &quot;victimViewY&quot;: 0.6097412109375,
-    &quot;weapon&quot;: &quot;Knife&quot;,
-    &quot;weaponClass&quot;: &quot;Equipment&quot;,
-    &quot;hpDamage&quot;: 61,                          # Can be over 100 (e.g., AWP headshots)
-    &quot;hpDamageTaken&quot;: 61,                     # Damage actually taken by the victim
-    &quot;armorDamage&quot;: 5,
-    &quot;armorDamageTaken&quot;: 5,
-    &quot;hitGroup&quot;: &quot;Generic&quot;,
-    &quot;isFriendlyFire&quot;: true,
-    &quot;distance&quot;: 73.82676464998524,
-    &quot;zoomLevel&quot;: 0                           # 0 for no zoom, 1 for half zoom, 2 for full zoom
-}
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;tick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8172</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.6875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;clockTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01:52&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76561198035759667</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alo0o0o0o0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1184.6986083984375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">477.1373596191406</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-55.96875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerViewX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.79931640625</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerViewY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.3837890625</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attackerStrafe&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">Was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">a</span><span class="kc">tta</span><span class="err">cker</span><span class="w"> </span><span class="err">movi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">whe</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">hey</span><span class="w"> </span><span class="err">sho</span><span class="kc">t</span>
+<span class="w">    </span><span class="nt">&quot;victimSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76561197960742750</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;howl&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1125.4398193359375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">520.9878540039062</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-51.978607177734375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimViewX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">9.2230224609375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;victimViewY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6097412109375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;weapon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Knife&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;weaponClass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Equipment&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;hpDamage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">                          </span><span class="err">#</span><span class="w"> </span><span class="err">Ca</span><span class="kc">n</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">over</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="err">(e.g.</span><span class="p">,</span><span class="w"> </span><span class="err">AWP</span><span class="w"> </span><span class="err">headsho</span><span class="kc">ts</span><span class="err">)</span>
+<span class="w">    </span><span class="nt">&quot;hpDamageTaken&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="p">,</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="err">Damage</span><span class="w"> </span><span class="err">ac</span><span class="kc">tuall</span><span class="err">y</span><span class="w"> </span><span class="kc">ta</span><span class="err">ke</span><span class="kc">n</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">vic</span><span class="kc">t</span><span class="err">im</span>
+<span class="w">    </span><span class="nt">&quot;armorDamage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;armorDamageTaken&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;hitGroup&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Generic&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isFriendlyFire&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">73.82676464998524</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;zoomLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="kc">n</span><span class="err">o</span><span class="w"> </span><span class="err">zoom</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">hal</span><span class="kc">f</span><span class="w"> </span><span class="err">zoom</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="kc">full</span><span class="w"> </span><span class="err">zoom</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="grenades">
-<h2>Grenades<a class="headerlink" href="#grenades" title="Permalink to this heading"></a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;throwTick&quot;: 8500,
-    &quot;destroyTick&quot;: 8860,                  # When was the entity destroyed
-    &quot;throwSeconds&quot;: 8.8125,
-    &quot;throwClockTime&quot;: &quot;01:47&quot;,
-    &quot;destroySeconds&quot;: 14.4375,
-    &quot;destroyClockTime&quot;: &quot;01:41&quot;,
-    &quot;throwerSteamID&quot;: 76561198098005932,
-    &quot;throwerName&quot;: &quot;aidan&quot;,
-    &quot;throwerTeam&quot;: &quot;&quot;,
-    &quot;throwerSide&quot;: &quot;CT&quot;,
-    &quot;throwerX&quot;: 1330.09375,
-    &quot;throwerY&quot;: 570.0625,
-    &quot;throwerZ&quot;: 200.96875,
-    &quot;grenadeType&quot;: &quot;HE Grenade&quot;,
-    &quot;grenadeX&quot;: 53.96875,
-    &quot;grenadeY&quot;: 671.5,
-    &quot;grenadeZ&quot;: 68.09375,
-    &quot;entityID&quot;: 5031578313293207366        # entity ID of the grenade
-}
+<h2>Grenades<a class="headerlink" href="#grenades" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;throwTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8500</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;destroyTick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8860</span><span class="p">,</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="err">Whe</span><span class="kc">n</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">e</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">des</span><span class="kc">tr</span><span class="err">oyed</span>
+<span class="w">    </span><span class="nt">&quot;throwSeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.8125</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwClockTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01:47&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;destroySeconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">14.4375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;destroyClockTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01:41&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerSteamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76561198098005932</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aidan&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerTeam&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerSide&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1330.09375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">570.0625</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;throwerZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">200.96875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;grenadeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HE Grenade&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;grenadeX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">53.96875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;grenadeY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">671.5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;grenadeZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">68.09375</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;entityID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5031578313293207366</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">e</span><span class="kc">nt</span><span class="err">i</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">gre</span><span class="kc">na</span><span class="err">de</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="bomb-events">
-<h2>Bomb Events<a class="headerlink" href="#bomb-events" title="Permalink to this heading"></a></h2>
+<h2>Bomb Events<a class="headerlink" href="#bomb-events" title="Link to this heading"></a></h2>
 <p>The bomb action can be <cite>defuse</cite>, <cite>defuse_start</cite>, <cite>defuse_aborted</cite>, <cite>plant</cite>, <cite>plant_start</cite>, <cite>plant_aborted</cite>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;tick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12250</span><span class="p">,</span>
@@ -362,7 +363,7 @@
 </div>
 </section>
 <section id="weapon-fires">
-<h2>Weapon Fires<a class="headerlink" href="#weapon-fires" title="Permalink to this heading"></a></h2>
+<h2>Weapon Fires<a class="headerlink" href="#weapon-fires" title="Link to this heading"></a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;tick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8492</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.6875</span><span class="p">,</span>
@@ -385,7 +386,7 @@
 </div>
 </section>
 <section id="flashes">
-<h2>Flashes<a class="headerlink" href="#flashes" title="Permalink to this heading"></a></h2>
+<h2>Flashes<a class="headerlink" href="#flashes" title="Link to this heading"></a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;tick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9518</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">24.71875</span><span class="p">,</span>
@@ -414,79 +415,79 @@
 </div>
 </section>
 <section id="frames">
-<h2>Frames<a class="headerlink" href="#frames" title="Permalink to this heading"></a></h2>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-    &quot;parseKillFrame&quot;: true                         # true if the frame was parsed due to a kill
-    &quot;tick&quot;: 8174,
-    &quot;seconds&quot;: 3.71875,
-    &quot;clockTime&quot;: &quot;01:52&quot;,
-    &quot;t&quot;: {
-        &quot;side&quot;: &quot;T&quot;,
-        &quot;teamName&quot;: &quot;&quot;,
-        &quot;teamEqVal&quot;: 3550,
-        &quot;alivePlayers&quot;: 5,
-        &quot;totalUtility&quot;: 1,
-        &quot;players&quot;: [{                              # List of player objects with the following structure
-            &quot;steamID&quot;: 76561198035759667,
-            &quot;name&quot;: &quot;alo0o0o0o0&quot;,
-            &quot;team&quot;: &quot;&quot;,
-            &quot;side&quot;: &quot;T&quot;,
-            &quot;x&quot;: -1179.1435546875,
-            &quot;y&quot;: 483.21026611328125,
-            &quot;z&quot;: -55.96875,
-            &quot;velocityX&quot;: 109.83319854736328,
-            &quot;velocityY&quot;: 91.87308502197266,
-            &quot;velocityZ&quot;: 0,
-            &quot;viewX&quot;: 56.84326171875,
-            &quot;viewY&quot;: 3.33984375,
-            &quot;hp&quot;: 100,
-            &quot;armor&quot;: 0,
-            &quot;activeWeapon&quot;: &quot;Knife&quot;,               # Weapon the player is currently holding
-            &quot;totalUtility&quot;: 0,
-            &quot;isAlive&quot;: true,
-            &quot;isBlinded&quot;: false,
-            &quot;isAirborne&quot;: false,
-            &quot;isDucking&quot;: false,
-            &quot;isDuckingInProgress&quot;: false,
-            &quot;isUnDuckingInProgress&quot;: false,
-            &quot;isDefusing&quot;: false,
-            &quot;isPlanting&quot;: false,
-            &quot;isReloading&quot;: false,
-            &quot;isInBombZone&quot;: false,
-            &quot;isInBuyZone&quot;: false,
-            &quot;isStanding&quot;: true,
-            &quot;isScoped&quot;: false,
-            &quot;isWalking&quot;: false,
-            &quot;isUnknown&quot;: false,
-            &quot;inventory&quot;: [{                        # List of weapons
-                &quot;weaponName&quot;: &quot;Glock-18&quot;,
-                &quot;weaponClass&quot;: &quot;Pistols&quot;,
-                &quot;ammoInMagazine&quot;: 20,
-                &quot;ammoInReserve&quot;: 120
-            }],
-            &quot;spotters&quot;: [...],                     # SteamIDs of players that the current player has spotted
-            &quot;equipmentValue&quot;: 200,
-            &quot;equipmentValueFreezetimeEnd&quot;: 200,
-            &quot;equipmentValueRoundStart&quot;: 200,
-            &quot;cash&quot;: 800,
-            &quot;cashSpendThisRound&quot;: 0,
-            &quot;cashSpendTotal&quot;: 0,                   # Cash spent the entire game
-            &quot;hasHelmet&quot;: false,
-            &quot;hasDefuse&quot;: false,
-            &quot;hasBomb&quot;: false,
-            &quot;ping&quot;: 32,
-            &quot;zoomLevel&quot;: 0
-            }]
-        },
-        &quot;ct&quot;: {...},                               # Same structure as &quot;t&quot;
+<h2>Frames<a class="headerlink" href="#frames" title="Link to this heading"></a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;parseKillFrame&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                         </span><span class="err">#</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">fra</span><span class="err">me</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="err">parsed</span><span class="w"> </span><span class="err">due</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">kill</span>
+<span class="w">    </span><span class="nt">&quot;tick&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8174</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.71875</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;clockTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01:52&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;side&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;teamName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;teamEqVal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3550</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;alivePlayers&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;totalUtility&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;players&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">                              </span><span class="err">#</span><span class="w"> </span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">player</span><span class="w"> </span><span class="err">objec</span><span class="kc">ts</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">f</span><span class="err">ollowi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">s</span><span class="kc">tru</span><span class="err">c</span><span class="kc">ture</span>
+<span class="w">            </span><span class="nt">&quot;steamID&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">76561198035759667</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alo0o0o0o0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;team&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;side&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1179.1435546875</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">483.21026611328125</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-55.96875</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;velocityX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">109.83319854736328</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;velocityY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">91.87308502197266</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;velocityZ&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;viewX&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">56.84326171875</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;viewY&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.33984375</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;hp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;armor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;activeWeapon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Knife&quot;</span><span class="p">,</span><span class="w">               </span><span class="err">#</span><span class="w"> </span><span class="err">Weapo</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">player</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">curre</span><span class="kc">ntl</span><span class="err">y</span><span class="w"> </span><span class="err">holdi</span><span class="kc">n</span><span class="err">g</span>
+<span class="w">            </span><span class="nt">&quot;totalUtility&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isAlive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isBlinded&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isAirborne&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isDucking&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isDuckingInProgress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isUnDuckingInProgress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isDefusing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isPlanting&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isReloading&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isInBombZone&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isInBuyZone&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isStanding&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isScoped&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isWalking&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;isUnknown&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;inventory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">                        </span><span class="err">#</span><span class="w"> </span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">weapo</span><span class="kc">ns</span>
+<span class="w">                </span><span class="nt">&quot;weaponName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Glock-18&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;weaponClass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pistols&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;ammoInMagazine&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;ammoInReserve&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span>
+<span class="w">            </span><span class="p">}],</span>
+<span class="w">            </span><span class="nt">&quot;spotters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="err">S</span><span class="kc">tea</span><span class="err">mIDs</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">players</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">curre</span><span class="kc">nt</span><span class="w"> </span><span class="err">player</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">spo</span><span class="kc">tte</span><span class="err">d</span>
+<span class="w">            </span><span class="nt">&quot;equipmentValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;equipmentValueFreezetimeEnd&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;equipmentValueRoundStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cash&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cashSpendThisRound&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cashSpendTotal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">                   </span><span class="err">#</span><span class="w"> </span><span class="err">Cash</span><span class="w"> </span><span class="err">spe</span><span class="kc">nt</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">e</span><span class="kc">nt</span><span class="err">ire</span><span class="w"> </span><span class="err">game</span>
+<span class="w">            </span><span class="nt">&quot;hasHelmet&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;hasDefuse&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;hasBomb&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ping&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;zoomLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="p">}]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;ct&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">                               </span><span class="err">#</span><span class="w"> </span><span class="err">Same</span><span class="w"> </span><span class="err">s</span><span class="kc">tru</span><span class="err">c</span><span class="kc">ture</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="nt">&quot;t&quot;</span>
 
-        &quot;projectiles&quot;: [{...}, ...],               # List of grenade objects
-        &quot;smokes&quot;: [{...}, ...],                    # List of current smokes
-        &quot;fires&quot;: [{...}, ...],                     # List of current fires
-        &quot;bomb&quot;: {&quot;x&quot;: 1.23, &quot;y&quot;: 4.56, &quot;z&quot;: 7.89}, # Bomb position
-        &quot;bombPlanted&quot;: false,
-        &quot;bombsite&quot;: &quot;&quot;
-}
+<span class="w">        </span><span class="nt">&quot;projectiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="p">],</span><span class="w">               </span><span class="err">#</span><span class="w"> </span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">gre</span><span class="kc">na</span><span class="err">de</span><span class="w"> </span><span class="err">objec</span><span class="kc">ts</span>
+<span class="w">        </span><span class="nt">&quot;smokes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="p">],</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">curre</span><span class="kc">nt</span><span class="w"> </span><span class="err">smokes</span>
+<span class="w">        </span><span class="nt">&quot;fires&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="err">...</span><span class="p">],</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="err">Lis</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">curre</span><span class="kc">nt</span><span class="w"> </span><span class="kc">f</span><span class="err">ires</span>
+<span class="w">        </span><span class="nt">&quot;bomb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.23</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.56</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;z&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.89</span><span class="p">},</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">Bomb</span><span class="w"> </span><span class="err">posi</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span>
+<span class="w">        </span><span class="nt">&quot;bombPlanted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;bombsite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
@@ -500,7 +501,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Peter Xenopoulos.</p>
+    <p>&#169; Copyright 2024, Peter Xenopoulos.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

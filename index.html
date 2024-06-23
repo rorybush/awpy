@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>awpy &mdash; awpy 1.3.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>awpy &mdash; awpy 2.0.0rc1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2943afd"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -51,7 +53,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="analytics.html">Analytics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parser.html">Parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a></li>
@@ -82,49 +83,30 @@
            <div itemprop="articleBody">
              
   <section id="awpy">
-<h1>awpy<a class="headerlink" href="#awpy" title="Permalink to this heading"></a></h1>
+<h1>awpy<a class="headerlink" href="#awpy" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://discord.gg/W34XjsSs2H"><img alt="Discord" src="https://img.shields.io/discord/868146581419999232?color=blue&amp;label=Discord&amp;logo=discord" /></a> <a class="reference external" href="https://github.com/pnxenopoulos/awpy"><img alt="Github" src="https://img.shields.io/badge/github-repo-yellowgreen" /></a> <a class="reference external" href="https://github.com/pnxenopoulos/awpy/actions/workflows/build.yml"><img alt="Build" src="https://github.com/pnxenopoulos/awpy/actions/workflows/build.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/pnxenopoulos/awpy/blob/main/LICENSE"><img alt="Licence" src="https://img.shields.io/badge/license-MIT-lightgrey" /></a></p>
-<p><cite>awpy</cite> allows a user to parse, analyze and visualize Counter-Strike: Global Offensive (CSGO) demo files. You can visit the <a class="reference external" href="https://github.com/pnxenopoulos/awpy">repository</a> to view the source code, examples and data. Please join the <a class="reference external" href="https://discord.gg/W34XjsSs2H">Discord</a> server if you would like to join our esports analytics community or to receive help with the library. To install the library, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">awpy</span></code> (Python &gt;= 3.11).</p>
-<p>Using this library to parse CSGO demos is as easy as the few lines of code shown below. To see what output looks like, check out <a class="reference internal" href="parser_output.html"><span class="doc">Example Parser JSON</span></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">awpy.parser</span> <span class="kn">import</span> <span class="n">DemoParser</span>
+<p><cite>awpy</cite> allows a user to parse, analyze and visualize Counter-Strike demo files. You can visit the <a class="reference external" href="https://github.com/pnxenopoulos/awpy">repository</a> to view the source code, examples and data. Please join the <a class="reference external" href="https://discord.gg/W34XjsSs2H">Discord</a> server if you would like to join our esports analytics community or to receive help with the library. To install the library, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">awpy</span></code> (Python &gt;= 3.11).</p>
+<p>Using Awpy to parse Counter-Strike demos is as easy as the few lines of code shown below. To see what output looks like, check out <a class="reference internal" href="parser_output.html"><span class="doc">Example Parser JSON</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">awpy</span> <span class="kn">import</span> <span class="n">parse_demo</span>
 
-<span class="c1"># Set the parse_rate equal to the tick rate at which you would like to parse the frames of the demo.</span>
-<span class="c1"># This parameter only matters if parse_frames=True</span>
-<span class="c1"># For reference, MM demos are usually 64 ticks, and pro/FACEIT demos are usually 128 ticks.</span>
-<span class="n">demo_parser</span> <span class="o">=</span> <span class="n">DemoParser</span><span class="p">(</span><span class="n">demofile</span><span class="o">=</span><span class="s2">&quot;og-vs-natus-vincere-m1-dust2.dem&quot;</span><span class="p">,</span>
-                         <span class="n">demo_id</span><span class="o">=</span><span class="s2">&quot;og-vs-natus-vincere&quot;</span><span class="p">,</span>
-                         <span class="n">parse_frames</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                         <span class="n">parse_rate</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="c1"># Parse a demo file in one line!</span>
+<span class="n">demo</span> <span class="o">=</span> <span class="n">parse_demo</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">&quot;og-vs-natus-vincere-m1-dust2.dem&quot;</span><span class="p">)</span>
 
-
-<span class="c1"># Parse the demofile, output results to dictionary with df name as key</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">demo_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-
-
-<span class="c1"># There are a variety of top level keys</span>
-<span class="c1"># You can view game rounds and events in &#39;gameRounds&#39;]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;matchID&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;clientName&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;mapName&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;tickRate&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;playbackTicks&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;playbackFramesCount&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;parsedToFrameIdx&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;parserParameters&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;serverVars&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;matchPhases&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;matchmakingRanks&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;playerConnections&quot;</span><span class="p">]</span>
-<span class="n">data</span><span class="p">[</span><span class="s2">&quot;gameRounds&quot;</span><span class="p">]</span> <span class="c1"># From this value, you can extract player events via: data[&#39;gameRounds&#39;][i][&#39;kills&#39;], etc.</span>
-
-<span class="c1"># You can also parse the data into dataframes using</span>
-<span class="n">data_df</span> <span class="o">=</span> <span class="n">demo_parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;df&quot;</span><span class="p">)</span>
-
-<span class="c1"># The parser also writes a JSON file of the output named demo_id.json</span>
+<span class="c1"># The `demo` object contains a variety of keys</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">header</span>       <span class="c1"># Header information like the map, tick rate, etc.</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">rounds</span>       <span class="c1"># A list of rounds and their start/end ticks</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">kills</span>        <span class="c1"># Kills and their details</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">damages</span>      <span class="c1"># Damage dealt by each player</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">grenades</span>     <span class="c1"># Grenade throws and their trajectories</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">effects</span>      <span class="c1"># Smokes &amp; mollies</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">flashes</span>      <span class="c1"># When a player is flashed</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">weapon_fires</span> <span class="c1"># Shots fired by each player</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">bomb_events</span>  <span class="c1"># Include plants, defuses, plant_start, defuse_start, etc.</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">ticks</span>        <span class="c1"># A list of each player&#39;s info at each tick</span>
 </pre></div>
 </div>
 <section id="using-awpy">
-<h2>Using awpy<a class="headerlink" href="#using-awpy" title="Permalink to this heading"></a></h2>
+<h2>Using awpy<a class="headerlink" href="#using-awpy" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt><a class="reference internal" href="installation.html"><span class="doc">Installation</span></a></dt><dd><p>How to install <cite>awpy</cite>.</p>
 </dd>
@@ -139,13 +121,13 @@
 </dl>
 </section>
 <section id="awpy-modules">
-<h2>awpy Modules<a class="headerlink" href="#awpy-modules" title="Permalink to this heading"></a></h2>
+<h2>awpy Modules<a class="headerlink" href="#awpy-modules" title="Link to this heading"></a></h2>
 <dl class="simple">
-<dt><a class="reference internal" href="analytics.html"><span class="doc">Analytics</span></a></dt><dd><p>Analytics module.</p>
-</dd>
 <dt><a class="reference internal" href="data.html"><span class="doc">Data</span></a></dt><dd><p>Data module.</p>
 </dd>
 <dt><a class="reference internal" href="parser.html"><span class="doc">Parser</span></a></dt><dd><p>Parsing module.</p>
+</dd>
+<dt><span class="xref std std-doc">stats</span></dt><dd><p>Stats module.</p>
 </dd>
 <dt><a class="reference internal" href="visualization.html"><span class="doc">Visualization</span></a></dt><dd><p>Visualization module.</p>
 </dd>
@@ -167,7 +149,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Peter Xenopoulos.</p>
+    <p>&#169; Copyright 2024, Peter Xenopoulos.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
